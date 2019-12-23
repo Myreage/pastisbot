@@ -1,7 +1,8 @@
-const {Client, Attachment} = require('discord.js');
+import {Client, Attachment} from 'discord.js';
+import {searchRandomImage} from './utils';
+import config from './config';
+
 const client = new Client();
-const {searchRandomImage} = require('./utils');
-const config = require('./config');
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -26,9 +27,10 @@ client.on('message', (msg) => {
     msg.reply(attachment);
   }
   if (command === 'marx') {
-    searchRandomImage('seize the means of production meme', 5, function(url) {
-      msg.reply(new Attachment(url));
-    });
+    searchRandomImage('seize the means of production meme', 5,
+        function(url : string) {
+          msg.reply(new Attachment(url));
+        });
   }
   if (command === 'newquote') {
 
