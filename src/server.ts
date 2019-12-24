@@ -17,10 +17,6 @@ client.on('message', (msg) => {
   if (msg.content.indexOf(config.prefix) !==0) return;
 
   // parse
-  // const args = msg.content.slice(config.prefix.length).trim().split(/ +/g);
-  // const command = args.shift().toLowerCase();
-
-  // parse
   // The parenthesis in the regex creates a captured group within the quotes
   const myRegexp = /[^\s"]+|"([^"]*)"/gi;
   const args = [];
