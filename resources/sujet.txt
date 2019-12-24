@@ -30,7 +30,7 @@ la business intelligence
 un problème
 la parole
 une chose merveilleuse
-les mots justes
+le mot juste
 la sagesse
 l'intelligence
 la pensée de l'homme
@@ -56,9 +56,19 @@ la Silicon Valley
 Google
 Apple
 Microsoft
-le hardware
-le software
-le cloud
-la blockchain
+le Hardware
+le Software
+le Bloud
+la Blockchain
 Jeff Bezos
 le responsive UI development
+la Green Finance
+la Green Bound
+le développement durable
+le Fast Python
+le Deep Learning
+le Big Data
+un bon Starbucks
+la décroissance écologique
+un bon Latte
+La Startup Nation
