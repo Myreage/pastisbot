@@ -2,6 +2,7 @@ import {Client, Attachment} from 'discord.js';
 import {searchRandomImage} from './utils';
 import config from './config';
 import fs from 'fs';
+import {coachingBuilder} from './coaching';
 
 const client = new Client();
 
@@ -34,7 +35,6 @@ client.on('message', (msg) => {
   } while (match != null);
 
   const command = args.shift().toLowerCase();
-  console.log(args);
 
   if (command === 'ping') {
     msg.reply('pong');
@@ -54,20 +54,36 @@ client.on('message', (msg) => {
   }
   if (command === 'newquote') {
     if (args[0] && args[1]) {
-      fs.appendFile('quotes.txt', '\n' + args[0] + ' - ' + args[1], (err) => {
+      fs.appendFile('resources/quotes.txt', '\n' + args[0] + ' - ' + args[1], (err) => {
         if (err) console.log(err);
         else msg.reply('Citation sauvegardée');
       });
     }
   }
   if (command === 'randomquote') {
-    fs.readFile('quotes.txt', 'utf8', (err, data) => {
+    fs.readFile('resources/quotes.txt', 'utf8', (err, data) => {
       if (err) console.log(err);
       else {
         const quotes = data.toString().split('\n');
         msg.reply(quotes[Math.floor(Math.random()*quotes.length)]);
       }
     });
+  }
+
+  if (command === 'pastis') {
+    searchRandomImage('pastis', 4,
+        function(url : string) {
+          msg.reply(new Attachment(url));
+        });
+  }
+  if (command === 'coachinggg') {
+    msg.reply(coachingBuilder(Math.floor(Math.random()*5) + 3));
+  }
+  if (command === 'coachingg') {
+    msg.reply(coachingBuilder(Math.floor(Math.random()*3) + 2));
+  }
+  if (command === 'coaching') {
+    msg.reply(coachingBuilder(1));
   }
 });
 

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-ts": "tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "dev": "npm run build-ts && npm run start"
   },
   "author": "",
   "license": "ISC",
