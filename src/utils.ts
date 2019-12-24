@@ -19,3 +19,50 @@ export function searchRandomImage(query : string, pages : number,
         _callback('');
       });
 }
+/**
+ *
+ * @return {string}
+ */
+export function pastisTime() {
+  const d = new Date();
+  const nbminutes = d.getMinutes();
+  let minutes : string = nbminutes.toString();
+  const nbhours = d.getHours();
+  let hours : string = nbhours.toString();
+  let result = '';
+
+  if (nbminutes < 10) {
+    minutes = '0' + minutes;
+  }
+
+  if (nbhours < 10) {
+    hours = '0' + hours;
+  }
+
+
+  if (nbminutes === 10) {
+    result = 'Il est ' + hours + 'h ' + minutes + ', l\'heure du pastis';
+  } else if (nbminutes === 50) {
+    result = 'Il est ' + (hours + 1) + 'h moins 10, l\'heure du pastis';
+  } else if (nbminutes === 45) {
+    result = 'Il est ' + (hours + 1) + 'h moins le quart, l\'heure du Ricard';
+  } else if (nbminutes === 15) {
+    result = 'Il est ' + hours + 'h et quart, l\'heure du Ricard';
+  } else {
+    const newDate = new Date(d.getTime() + 15*60000);
+    const nbnewhours = newDate.getHours();
+    const nbnewminutes = newDate.getMinutes();
+    let newhours = nbnewhours.toString();
+    let newminutes = nbnewminutes.toString();
+
+    if (nbnewhours < 10) {
+      newhours = '0' + nbnewhours;
+    }
+    if (nbnewminutes < 10) {
+      newminutes = '0' + nbnewminutes;
+    }
+    result = 'Il est ' + newhours + 'h' + newminutes +
+      ' moins le quart, l\'heure du Ricard';
+  }
+  return result;
+}

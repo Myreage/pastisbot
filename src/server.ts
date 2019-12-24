@@ -1,5 +1,5 @@
 import {Client, Attachment} from 'discord.js';
-import {searchRandomImage} from './utils';
+import {searchRandomImage, pastisTime} from './utils';
 import config from './config';
 import fs from 'fs';
 import {coachingBuilder} from './coaching';
@@ -54,10 +54,11 @@ client.on('message', (msg) => {
   }
   if (command === 'newquote') {
     if (args[0] && args[1]) {
-      fs.appendFile('resources/quotes.txt', '\n' + args[0] + ' - ' + args[1], (err) => {
-        if (err) console.log(err);
-        else msg.reply('Citation sauvegardée');
-      });
+      fs.appendFile('resources/quotes.txt', '\n' + args[0] + ' - ' + args[1],
+          (err) => {
+            if (err) console.log(err);
+            else msg.reply('Citation sauvegardée');
+          });
     }
   }
   if (command === 'randomquote') {
@@ -84,6 +85,9 @@ client.on('message', (msg) => {
   }
   if (command === 'coaching') {
     msg.reply(coachingBuilder(1));
+  }
+  if (command === 'heure' ) {
+    msg.reply(pastisTime());
   }
 });
 
