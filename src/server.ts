@@ -7,6 +7,10 @@ import {coachingBuilder} from './coaching';
 
 const client = new Client();
 
+const nudesUrl = ['https://media.giphy.com/media/9J6UQLLRY5EWnPXV4W/giphy.gif',
+  'https://media.giphy.com/media/9J6UQLLRY5EWnPXV4W/giphy.gif',
+  'https://media1.giphy.com/media/3o7btTjikEQUjzr7sA/giphy.gif'];
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -17,7 +21,8 @@ client.on('message', (msg) => {
 
   // random words
   if (msg.content.toLowerCase().includes('nude')) {
-    const attachment = new Attachment('https://media1.giphy.com/media/3o7btTjikEQUjzr7sA/giphy.gif');
+    const attachment = new Attachment(
+        nudesUrl[Math.floor(Math.random()*nudesUrl.length)]);
     msg.channel.send('<@227855047877328896>', attachment);
   }
 
