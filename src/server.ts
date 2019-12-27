@@ -25,7 +25,10 @@ client.on('message', (msg) => {
         nudesUrl[Math.floor(Math.random()*nudesUrl.length)]);
     msg.channel.send('<@227855047877328896>', attachment);
   }
-
+  if (msg.content.toLowerCase().includes('tiltproof')) {
+    const attachment = new Attachment('https://media.discordapp.net/attachments/644457423062433792/659899498642014238/received_1002990420076074.jpeg');
+    msg.reply(attachment);
+  }
   // check prefix
   if (msg.content.indexOf(config.prefix) !==0) return;
 
