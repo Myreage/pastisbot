@@ -39,8 +39,8 @@ export function pastisTime() {
     hours = '0' + hours;
   }
 
-  if (nbminutes === 10) {
-    result = 'Il est ' + hours + 'h ' + minutes + ', l\'heure du pastis';
+  if (nbminutes === 10 || [6, 26, 36, 46, 56].indexOf(nbminutes) >= 0) {
+    result = 'Il est ' + hours + 'h' + minutes + ', l\'heure du pastis';
   } else if (nbminutes === 15) {
     result = 'Il est ' + hours + 'h et quart, l\'heure du Ricard';
   } else {
