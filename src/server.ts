@@ -15,6 +15,12 @@ client.on('message', (msg) => {
   // ignore bot messages
   if (msg.author.bot) return;
 
+  // random words
+  if (msg.content.toLowerCase().includes('nude')) {
+    const attachment = new Attachment('https://media1.giphy.com/media/3o7btTjikEQUjzr7sA/giphy.gif');
+    msg.channel.send('<@227855047877328896>', attachment);
+  }
+
   // check prefix
   if (msg.content.indexOf(config.prefix) !==0) return;
 
