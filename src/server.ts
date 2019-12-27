@@ -148,7 +148,7 @@ client.on('message', (msg) => {
       }
 
       if (file != '') {
-        fs.appendFile('resources/' + file, '\n' + args[1],
+        fs.appendFile('resources/' + file, '\n' + args[1].toLowerCase(),
             (err) => {
               if (err) console.log(err);
               else msg.reply('Phrase sauvegardée');
