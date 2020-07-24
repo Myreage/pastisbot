@@ -2,3 +2,5 @@ src/config.ts
 node_modules
 dist
 quotes.txt
+*.zip
+package-lock.json
