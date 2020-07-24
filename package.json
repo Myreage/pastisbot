@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-ts": "tsc",
-    "start": "node dist/server.js",
+    "start": "env TZ='Europe/Paris' node dist/server.js",
     "dev": "npm run build-ts && npm run start",
     "bundle": "npm install && npm run build-ts && zip -r pastisbot.zip dist node_modules resources package.json"
   },
